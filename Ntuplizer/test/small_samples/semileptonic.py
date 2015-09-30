@@ -1,3 +1,10 @@
+############## version log ######################################
+# Based on Dave's version              				#	
+# With some tweaks for PDF by Nick				#
+# Add csvtag for AK5 jets					#
+# Remove fat jets and loose leptons to reduce size		#
+#################################################################
+
 import FWCore.ParameterSet.Config as cms
 
 from FWCore.ParameterSet.VarParsing import VarParsing
@@ -5,7 +12,7 @@ options = VarParsing('analysis')
 options.register('runOnData', 0, VarParsing.multiplicity.singleton, VarParsing.varType.bool, "Flag for data (True) or MC (False), used to decide whether to apply b-tagging SF")
 options.register('JES', 'nominal', VarParsing.multiplicity.singleton, VarParsing.varType.string, "Flag for Jet Energy Scale. Options are nominal (off), up, and down - forced to nominal for data")
 options.register('JER', 'nominal', VarParsing.multiplicity.singleton, VarParsing.varType.string, "Flag for Jet Energy Resolution Smearing. Options are nominal, up, and down - forced to nominal for data")
-options.register('includePDF', 0, VarParsing.multiplicity.singleton, VarParsing.varType.bool, "Flag for if to include PDF Weights")
+options.register('includePDF', 1, VarParsing.multiplicity.singleton, VarParsing.varType.bool, "Flag for if to include PDF Weights")
 options.register('runOnCrab', 0, VarParsing.multiplicity.singleton, VarParsing.varType.bool, "Flag to process JEC files properly on the grid")
 options.setDefault('maxEvents', 1000)
 options.setDefault('outputFile', 'jhutester.root')
@@ -19,8 +26,6 @@ print options
 ############### jerFactor ###############
 # 0.10 for the default resolution smearing for both pT and the angular distributions
 # +/- 0.10 to scale up or down the resolution. So, 0.20 or 0.00
-
-xroot_prefix ='file:root://cmsxrootd.fnal.gov/'
 
 if options.runOnData:
 	runOnData = cms.bool(True)
@@ -42,13 +47,12 @@ else:
 	if options.JER == 'down':
 		jerFactor = cms.double(0.00)
 	#filenames = cms.untracked.vstring("file:root://xrootd.unl.edu//store/results/B2G/TT_Mtt-700to1000_CT10_TuneZ2star_8TeV-powheg-tauola/StoreResults-Summer12_DR53X-PU_S10_START53_V7A-v1_TLBSM_53x_v3-99bd99199697666ff01397dad5652e9e/TT_Mtt-700to1000_CT10_TuneZ2star_8TeV-powheg-tauola/USER/StoreResults-Summer12_DR53X-PU_S10_START53_V7A-v1_TLBSM_53x_v3-99bd99199697666ff01397dad5652e9e/0000/02621A0E-40C2-E211-9F42-002590593902.root")
-        #filenames = cms.untracked.vstring("file:./w4jets_PAT_ReReco_25k_tlbsm_53x_v3_mc.root")
-        filenames = cms.untracked.vstring(xroot_prefix+"/store/results/B2G/W4JetsToLNu_TuneZ2Star_8TeV-madgraph/StoreResults-Summer12_DR53X-PU_S10_START53_V7A-v1_TLBSM_53x_v3-99bd99199697666ff01397dad5652e9e/W4JetsToLNu_TuneZ2Star_8TeV-madgraph/USER/StoreResults-Summer12_DR53X-PU_S10_START53_V7A-v1_TLBSM_53x_v3-99bd99199697666ff01397dad5652e9e/0000/023AE6FE-3DAD-E211-8A25-00261894383F.root")
+        filenames = cms.untracked.vstring("file:/eos/uscms/store/user/lfeng7/sample_files/PATtuples/TT_CT10_TuneZ2star_8TeV-powheg-tauola_TLBSM_PAT.root")
 
 if options.runOnCrab:
 	jec_prepend = ''
 else:
-	jec_prepend = 'JEC/'
+	jec_prepend = '../JEC/'
 
 if options.runOnData:
 	theJecPayloads_AK7 = cms.vstring([
@@ -159,21 +163,16 @@ process.pdfWeights = cms.EDProducer("PdfWeightProducer",
 	FixPOWHEG = cms.untracked.string(""),
 	GenTag = cms.untracked.InputTag("prunedGenParticles"),
 	PdfInfoTag = cms.untracked.InputTag("generator"),
-	PdfSetNames = cms.untracked.vstring("CT10.LHgrid",
-										"MSTW2008nnlo68cl.LHgrid",
-										"NNPDF23_nnlo_as_0118.LHgrid"))
+	PdfSetNames = cms.untracked.vstring("CT10.LHgrid")#,
+							#			"GJR08VFnloE.LHgrid",
+							#			"cteq66.LHgrid"))
+)
 
 process.MessageLogger.cerr.FwkReport.reportEvery = 100
 process.p = cms.Path(
 			process.jhuGen*
 			process.jhuMuonPFlow*
-			process.jhuMuonPFlowLoose*
 			process.jhuElePFlow*
-			process.jhuElePFlowLoose*
-			process.jhuCa8*
-			process.jhuCa8pp*
-			process.jhuCa8tt*
-			process.jhuHep*
 			process.jhuAk5)
 
 if options.includePDF:

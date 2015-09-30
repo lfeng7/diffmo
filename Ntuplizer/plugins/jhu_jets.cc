@@ -68,7 +68,7 @@ jhuHadronic::jhuHadronic(const edm::ParameterSet &iConfig) :
 	addTopTag_   (iConfig.getParameter<bool>( "addTopTagInfo")),
 	jecValue_(-1.0)
 {
-	doB_ = (btagType_ != "");
+	doB_ = (btagType_ != "" and jetName_ !="AK5"); //Modified to allow adding correct csv for ak5 jets
 	doT_ = (useNsub_ == "yes" or useNsub_ == "y");
 	doSubcorr_ = (subcorr_ == "yes" or subcorr_ == "y");
 

@@ -1,0 +1,179 @@
+cmsRun semi
+semileptonic.py       semileptonic_nick.py  
+_lfeng7@cmslpc24:pilot_runs\[lfeng7@cmslpc24 pilot_runs]$ cmsRun semileptonic.py 
+Singletons:
+  JER                : nominal
+                     - Flag for Jet Energy Resolution Smearing. Options are nominal, up, and down - forced to nominal for data
+  JES                : nominal
+                     - Flag for Jet Energy Scale. Options are nominal (off), up, and down - forced to nominal for data
+  filePrepend        : 
+                     - String to prepend location of all files
+  includePDF         : 1
+                     - Flag for if to include PDF Weights
+  maxEvents          : 1000
+                     - Number of events to process (-1 for all)
+  outputFile         : jhutester.root
+                     - Name of output file (if needed)
+  runOnCrab          : 0
+                     - Flag to process JEC files properly on the grid
+  runOnData          : 0
+                     - Flag for data (True) or MC (False), used to decide whether to apply b-tagging SF
+  secondaryOutputFile: 
+                     - Name of second output file (if needed)
+  section            : 0
+                     - This section (from 1..totalSections inclusive)
+  tag                : 
+                     - tag to add to output filename
+  totalSections      : 0
+                     - Total number of sections
+Lists:
+  inputFiles         : []
+                     - Files to process
+  secondaryInputFiles: []
+                     - Second group of files to process (if needed)
+
+-------------------------------------------------------------
+11-Sep-2015 03:41:07 CDT  Initiating request to open file file:/eos/uscms/store/user/lfeng7/sample_files/PATtuples/TT_CT10_TuneZ2star_8TeV-powheg-tauola_TLBSM_PAT.root
+11-Sep-2015 03:41:11 CDT  Successfully opened file file:/eos/uscms/store/user/lfeng7/sample_files/PATtuples/TT_CT10_TuneZ2star_8TeV-powheg-tauola_TLBSM_PAT.root
+Adding payload ../JEC/START53_V27_L1FastJet_AK5PFchs.txt
+Adding payload ../JEC/START53_V27_L2Relative_AK5PFchs.txt
+Adding payload ../JEC/START53_V27_L3Absolute_AK5PFchs.txt
+adding general event info
+adding lepton... muon
+adding lepton... electron
+adding jets..... AK5
+ *************************************
+ *       LHAPDF Version 5.9.1        *
+ *   Configured for the following:   *
+ *             All PDFs              *
+ *          LOW MEMORY option        *
+ *    Maximum  1 concurrent set(s)   *
+ *************************************
+
+ >>>>>> PDF description: <<<<<<
+ CT10                                                            
+ H.-L.Lai, M.Guzzi, J. Huston, Z.Li,                             
+ P.M.Nadolsky, J.Pumplin and C.-P.Yuan.                          
+ Reference: arXiv:1007.2241                                      
+ PDF fits using the standard CTEQ PDF evolution                  
+ but using the HOPPET alphas_s running solution.                 
+ Excluding the D0 Run-II W asymmetry data.                       
+ This set has 52 member PDFs.                                    
+     mem=0 --> central value                                     
+     mem=1-52 --> eigenvector sets                               
+ >>>>>>                   <<<<<<
+
+Begin processing the 1st record. Run 1, Event 14388288, LumiSection 47971 at 11-Sep-2015 03:41:14.783 CDT
+Begin processing the 101st record. Run 1, Event 14388388, LumiSection 47971 at 11-Sep-2015 04:47:09.883 CDT
+Begin processing the 201st record. Run 1, Event 14388488, LumiSection 47971 at 11-Sep-2015 05:52:57.933 CDT
+Begin processing the 301st record. Run 1, Event 14390088, LumiSection 47977 at 11-Sep-2015 06:59:03.541 CDT
+Begin processing the 401st record. Run 1, Event 14390188, LumiSection 47977 at 11-Sep-2015 08:05:02.612 CDT
+Begin processing the 501st record. Run 1, Event 14390290, LumiSection 47977 at 11-Sep-2015 09:11:25.783 CDT
+Begin processing the 601st record. Run 1, Event 14390690, LumiSection 47979 at 11-Sep-2015 10:18:03.219 CDT
+Begin processing the 701st record. Run 1, Event 14390791, LumiSection 47979 at 11-Sep-2015 11:24:22.051 CDT
+Begin processing the 801st record. Run 1, Event 14390891, LumiSection 47979 at 11-Sep-2015 12:30:22.126 CDT
+Begin processing the 901st record. Run 1, Event 14442594, LumiSection 48152 at 11-Sep-2015 13:36:55.854 CDT
+11-Sep-2015 14:43:12 CDT  Closed file file:/eos/uscms/store/user/lfeng7/sample_files/PATtuples/TT_CT10_TuneZ2star_8TeV-powheg-tauola_TLBSM_PAT.root
+
+TrigReport ---------- Event  Summary ------------
+TrigReport Events total = 1000 passed = 1000 failed = 0
+
+TrigReport ---------- Path   Summary ------------
+TrigReport  Trig Bit#        Run     Passed     Failed      Error Name
+TrigReport     1    0       1000       1000          0          0 p
+
+TrigReport -------End-Path   Summary ------------
+TrigReport  Trig Bit#        Run     Passed     Failed      Error Name
+TrigReport     0    0       1000       1000          0          0 outpath
+
+TrigReport ---------- Modules in Path: p ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0       1000       1000          0          0 jhuGen
+TrigReport     1    0       1000       1000          0          0 jhuMuonPFlow
+TrigReport     1    0       1000       1000          0          0 jhuElePFlow
+TrigReport     1    0       1000       1000          0          0 jhuAk5
+TrigReport     1    0       1000       1000          0          0 pdfWeights
+
+TrigReport ------ Modules in End-Path: outpath ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     0    0       1000       1000          0          0 out
+
+TrigReport ---------- Module Summary ------------
+TrigReport    Visited        Run     Passed     Failed      Error Name
+TrigReport       1000       1000       1000          0          0 jhuGen
+TrigReport       1000       1000       1000          0          0 jhuMuonPFlow
+TrigReport       1000       1000       1000          0          0 jhuElePFlow
+TrigReport       1000       1000       1000          0          0 jhuAk5
+TrigReport       1000       1000       1000          0          0 pdfWeights
+TrigReport       1000       1000       1000          0          0 TriggerResults
+TrigReport       1000       1000       1000          0          0 out
+
+TimeReport ---------- Event  Summary ---[sec]----
+TimeReport CPU/event = 39.686959 Real/event = 39.717501
+
+TimeReport ---------- Path   Summary ---[sec]----
+TimeReport             per event          per path-run 
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport  39.685566  39.715907  39.685566  39.715907 p
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport             per event          per path-run 
+
+TimeReport -------End-Path   Summary ---[sec]----
+TimeReport             per event       per endpath-run 
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport   0.001366   0.001540   0.001366   0.001540 outpath
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport             per event       per endpath-run 
+
+TimeReport ---------- Modules in Path: p ---[sec]----
+TimeReport             per event      per module-visit 
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport   0.000680   0.000681   0.000680   0.000681 jhuGen
+TimeReport   0.000431   0.000452   0.000431   0.000452 jhuMuonPFlow
+TimeReport   0.000460   0.000470   0.000460   0.000470 jhuElePFlow
+TimeReport   0.001350   0.001344   0.001350   0.001344 jhuAk5
+TimeReport  39.682638  39.712954  39.682638  39.712954 pdfWeights
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport             per event      per module-visit 
+
+TimeReport ------ Modules in End-Path: outpath ---[sec]----
+TimeReport             per event      per module-visit 
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport   0.001364   0.001538   0.001364   0.001538 out
+TimeReport        CPU       Real        CPU       Real Name
+TimeReport             per event      per module-visit 
+
+TimeReport ---------- Module Summary ---[sec]----
+TimeReport             per event        per module-run      per module-visit 
+TimeReport        CPU       Real        CPU       Real        CPU       Real Name
+TimeReport   0.000680   0.000681   0.000680   0.000681   0.000680   0.000681 jhuGen
+TimeReport   0.000431   0.000452   0.000431   0.000452   0.000431   0.000452 jhuMuonPFlow
+TimeReport   0.000460   0.000470   0.000460   0.000470   0.000460   0.000470 jhuElePFlow
+TimeReport   0.001350   0.001344   0.001350   0.001344   0.001350   0.001344 jhuAk5
+TimeReport  39.682638  39.712954  39.682638  39.712954  39.682638  39.712954 pdfWeights
+TimeReport   0.000017   0.000046   0.000017   0.000046   0.000017   0.000046 TriggerResults
+TimeReport   0.001364   0.001538   0.001364   0.001538   0.001364   0.001538 out
+TimeReport        CPU       Real        CPU       Real        CPU       Real Name
+TimeReport             per event        per module-run      per module-visit 
+
+T---Report end!
+
+
+=============================================
+
+MessageLogger Summary
+
+ type     category        sev    module        subroutine        count    total
+ ---- -------------------- -- ---------------- ----------------  -----    -----
+    1 fileAction           -s file_close                             1        1
+    2 fileAction           -s file_open                              2        2
+
+ type    category    Examples: run/evt        run/evt          run/evt
+ ---- -------------------- ---------------- ---------------- ----------------
+    1 fileAction           PostEndRun                        
+    2 fileAction           pre-events       pre-events       
+
+Severity    # Occurrences   Total Occurrences
+--------    -------------   -----------------
+System                  3                   3
+_lfeng7@cmslpc24:pilot_runs\[lfeng7@cmslpc24 pilot_runs]$ 

@@ -1,0 +1,224 @@
+DEBUG 2015-09-10 12:09:53,535: 	 Executing command: 'submit'
+DEBUG 2015-09-10 12:09:53,535: 	 Found CRAB cache file /uscms/home/lfeng7/.crab3
+DEBUG 2015-09-10 12:09:53,547: 	 Checking credentials
+DEBUG 2015-09-10 12:09:53,548: 	 Found proxy file /tmp/x509up_u48582
+DEBUG 2015-09-10 12:09:53,548: 	 Getting proxy life time left
+DEBUG 2015-09-10 12:09:53,649: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u48582 -timeleft
+ output : 43184
+
+ error: 
+ retcode : 0
+DEBUG 2015-09-10 12:09:53,751: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u48582 -actimeleft
+ output : 43184
+
+ error: 
+ retcode : 0
+DEBUG 2015-09-10 12:09:53,752: 	 Proxy valid for 11:59:44 hours
+INFO 2015-09-10 12:09:53,752: 	 Will use CRAB configuration file crab_tester.py
+DEBUG 2015-09-10 12:09:53,752: 	 Loading CRAB configuration file.
+ERROR 2015-09-10 12:09:53,769: 	 Syntax error in CRAB configuration file:
+name 'cconfig' is not defined
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2015-09-10 12:09:53,769: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/bin/crab", line 151, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/bin/crab", line 137, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/lib/python2.6/site-packages/CRABClient/Commands/submit.py", line 38, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 296, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 85, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Syntax error in CRAB configuration file:
+name 'cconfig' is not defined
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+DEBUG 2015-09-10 12:10:38,208: 	 Executing command: 'submit'
+DEBUG 2015-09-10 12:10:38,208: 	 Found CRAB cache file /uscms/home/lfeng7/.crab3
+DEBUG 2015-09-10 12:10:38,213: 	 Checking credentials
+DEBUG 2015-09-10 12:10:38,213: 	 Found proxy file /tmp/x509up_u48582
+DEBUG 2015-09-10 12:10:38,213: 	 Getting proxy life time left
+DEBUG 2015-09-10 12:10:38,314: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u48582 -timeleft
+ output : 43139
+
+ error: 
+ retcode : 0
+DEBUG 2015-09-10 12:10:38,416: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u48582 -actimeleft
+ output : 43139
+
+ error: 
+ retcode : 0
+DEBUG 2015-09-10 12:10:38,416: 	 Proxy valid for 11:58:59 hours
+INFO 2015-09-10 12:10:38,416: 	 Will use CRAB configuration file crab_tester.py
+DEBUG 2015-09-10 12:10:38,417: 	 Loading CRAB configuration file.
+ERROR 2015-09-10 12:10:38,419: 	 Invalid CRAB configuration: Parameter Data.outLFN has been renamed to Data.outLFNDirBase starting from CRAB v3.3.16; please change your configuration file accordingly.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2015-09-10 12:10:38,420: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/bin/crab", line 151, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/bin/crab", line 137, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/lib/python2.6/site-packages/CRABClient/Commands/submit.py", line 38, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 296, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 90, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Invalid CRAB configuration: Parameter Data.outLFN has been renamed to Data.outLFNDirBase starting from CRAB v3.3.16; please change your configuration file accordingly.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+DEBUG 2015-09-11 03:34:41,685: 	 Executing command: 'submit'
+DEBUG 2015-09-11 03:34:41,688: 	 Found CRAB cache file /uscms/home/lfeng7/.crab3
+DEBUG 2015-09-11 03:34:41,782: 	 Checking credentials
+DEBUG 2015-09-11 03:34:41,783: 	 Found proxy file /tmp/x509up_u48582
+DEBUG 2015-09-11 03:34:41,783: 	 Getting proxy life time left
+DEBUG 2015-09-11 03:34:42,085: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u48582 -timeleft
+ output : 42469
+
+ error: 
+ retcode : 0
+DEBUG 2015-09-11 03:34:42,388: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u48582 -actimeleft
+ output : 42469
+
+ error: 
+ retcode : 0
+DEBUG 2015-09-11 03:34:42,388: 	 Proxy valid for 11:47:49 hours
+INFO 2015-09-11 03:34:42,389: 	 Will use CRAB configuration file crab_ttbar_powheg.py
+DEBUG 2015-09-11 03:34:42,389: 	 Loading CRAB configuration file.
+ERROR 2015-09-11 03:34:42,427: 	 Invalid CRAB configuration: Parameter Data.outLFN has been renamed to Data.outLFNDirBase starting from CRAB v3.3.16; please change your configuration file accordingly.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2015-09-11 03:34:42,428: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/bin/crab", line 151, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/bin/crab", line 137, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/lib/python2.6/site-packages/CRABClient/Commands/submit.py", line 38, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 296, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 90, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Invalid CRAB configuration: Parameter Data.outLFN has been renamed to Data.outLFNDirBase starting from CRAB v3.3.16; please change your configuration file accordingly.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+DEBUG 2015-09-11 03:35:22,190: 	 Executing command: 'submit'
+DEBUG 2015-09-11 03:35:22,191: 	 Found CRAB cache file /uscms/home/lfeng7/.crab3
+DEBUG 2015-09-11 03:35:22,204: 	 Checking credentials
+DEBUG 2015-09-11 03:35:22,204: 	 Found proxy file /tmp/x509up_u48582
+DEBUG 2015-09-11 03:35:22,204: 	 Getting proxy life time left
+DEBUG 2015-09-11 03:35:22,306: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u48582 -timeleft
+ output : 42429
+
+ error: 
+ retcode : 0
+DEBUG 2015-09-11 03:35:22,409: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u48582 -actimeleft
+ output : 42429
+
+ error: 
+ retcode : 0
+DEBUG 2015-09-11 03:35:22,409: 	 Proxy valid for 11:47:09 hours
+INFO 2015-09-11 03:35:22,409: 	 Will use CRAB configuration file crab_ttbar_powheg.py
+DEBUG 2015-09-11 03:35:22,409: 	 Loading CRAB configuration file.
+ERROR 2015-09-11 03:35:22,411: 	 Invalid CRAB configuration: Parameter Data.outLFN has been renamed to Data.outLFNDirBase starting from CRAB v3.3.16; please change your configuration file accordingly.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2015-09-11 03:35:22,411: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/bin/crab", line 151, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/bin/crab", line 137, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/lib/python2.6/site-packages/CRABClient/Commands/submit.py", line 38, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 296, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 90, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Invalid CRAB configuration: Parameter Data.outLFN has been renamed to Data.outLFNDirBase starting from CRAB v3.3.16; please change your configuration file accordingly.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+DEBUG 2015-09-11 03:36:15,571: 	 Executing command: 'submit'
+DEBUG 2015-09-11 03:36:15,571: 	 Found CRAB cache file /uscms/home/lfeng7/.crab3
+DEBUG 2015-09-11 03:36:15,578: 	 Checking credentials
+DEBUG 2015-09-11 03:36:15,579: 	 Found proxy file /tmp/x509up_u48582
+DEBUG 2015-09-11 03:36:15,579: 	 Getting proxy life time left
+DEBUG 2015-09-11 03:36:15,681: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u48582 -timeleft
+ output : 42376
+
+ error: 
+ retcode : 0
+DEBUG 2015-09-11 03:36:15,783: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u48582 -actimeleft
+ output : 42376
+
+ error: 
+ retcode : 0
+DEBUG 2015-09-11 03:36:15,784: 	 Proxy valid for 11:46:16 hours
+INFO 2015-09-11 03:36:15,784: 	 Will use CRAB configuration file crab_tester.py
+DEBUG 2015-09-11 03:36:15,784: 	 Loading CRAB configuration file.
+DEBUG 2015-09-11 03:36:15,787: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2015-09-11 03:36:15,787: 	 Working area '/uscms_data/d3/lfeng7/Legacy_Afb/JHUntuples/CMSSW_5_3_20/src/Analysis/Ntuplizer/test/semileptonic_crab_files/crab_TTBar_Powheg_tester' already exists 
+Please change the requestName in the config file
+ERROR 2015-09-11 03:36:15,787: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/bin/crab", line 151, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/bin/crab", line 137, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/lib/python2.6/site-packages/CRABClient/Commands/submit.py", line 38, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 300, in __init__
+    getattr(self.configuration.General, 'requestName', None))
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/lib/python2.6/site-packages/CRABClient/ClientUtilities.py", line 387, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+ConfigException: Working area '/uscms_data/d3/lfeng7/Legacy_Afb/JHUntuples/CMSSW_5_3_20/src/Analysis/Ntuplizer/test/semileptonic_crab_files/crab_TTBar_Powheg_tester' already exists 
+Please change the requestName in the config file
+DEBUG 2015-09-11 03:36:30,115: 	 Executing command: 'submit'
+DEBUG 2015-09-11 03:36:30,116: 	 Found CRAB cache file /uscms/home/lfeng7/.crab3
+DEBUG 2015-09-11 03:36:30,125: 	 Checking credentials
+DEBUG 2015-09-11 03:36:30,125: 	 Found proxy file /tmp/x509up_u48582
+DEBUG 2015-09-11 03:36:30,125: 	 Getting proxy life time left
+DEBUG 2015-09-11 03:36:30,228: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u48582 -timeleft
+ output : 42361
+
+ error: 
+ retcode : 0
+DEBUG 2015-09-11 03:36:30,330: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u48582 -actimeleft
+ output : 42361
+
+ error: 
+ retcode : 0
+DEBUG 2015-09-11 03:36:30,330: 	 Proxy valid for 11:46:01 hours
+INFO 2015-09-11 03:36:30,331: 	 Will use CRAB configuration file crab_tester.py
+DEBUG 2015-09-11 03:36:30,331: 	 Loading CRAB configuration file.
+DEBUG 2015-09-11 03:36:30,333: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2015-09-11 03:36:30,334: 	 Working area '/uscms_data/d3/lfeng7/Legacy_Afb/JHUntuples/CMSSW_5_3_20/src/Analysis/Ntuplizer/test/semileptonic_crab_files/crab_TTBar_Powheg_tester' already exists 
+Please change the requestName in the config file
+ERROR 2015-09-11 03:36:30,334: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/bin/crab", line 151, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/bin/crab", line 137, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/lib/python2.6/site-packages/CRABClient/Commands/submit.py", line 38, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/lib/python2.6/site-packages/CRABClient/Commands/SubCommand.py", line 300, in __init__
+    getattr(self.configuration.General, 'requestName', None))
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc481/cms/crabclient/3.3.1509/lib/python2.6/site-packages/CRABClient/ClientUtilities.py", line 387, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+ConfigException: Working area '/uscms_data/d3/lfeng7/Legacy_Afb/JHUntuples/CMSSW_5_3_20/src/Analysis/Ntuplizer/test/semileptonic_crab_files/crab_TTBar_Powheg_tester' already exists 
+Please change the requestName in the config file
