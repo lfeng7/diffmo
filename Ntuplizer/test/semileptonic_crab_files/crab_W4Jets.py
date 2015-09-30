@@ -20,9 +20,12 @@ config.section_('Data')
 config.Data.inputDataset = '/W4JetsToLNu_TuneZ2Star_8TeV-madgraph/StoreResults-Summer12_DR53X-PU_S10_START53_V7A-v1_TLBSM_53x_v3-99bd99199697666ff01397dad5652e9e/USER'
 config.Data.unitsPerJob = 5
 config.Data.splitting = 'FileBased'
-config.Data.publishDataName = 'W4Jets_v1'
+config.Data.totalUnits = 50
+config.Data.publication = False 
+#config.Data.publishDataName = 'W4Jets_v1'
 
 config.section_('User')
+config.Data.outLFNDirBase = '/store/user/lfeng/ntuples/jhu_diffmo'
 
 config.section_('Site')
 config.Site.storageSite = 'T3_US_FNALLPC'
