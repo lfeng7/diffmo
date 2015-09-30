@@ -12,7 +12,7 @@ options = VarParsing('analysis')
 options.register('runOnData', 0, VarParsing.multiplicity.singleton, VarParsing.varType.bool, "Flag for data (True) or MC (False), used to decide whether to apply b-tagging SF")
 options.register('JES', 'nominal', VarParsing.multiplicity.singleton, VarParsing.varType.string, "Flag for Jet Energy Scale. Options are nominal (off), up, and down - forced to nominal for data")
 options.register('JER', 'nominal', VarParsing.multiplicity.singleton, VarParsing.varType.string, "Flag for Jet Energy Resolution Smearing. Options are nominal, up, and down - forced to nominal for data")
-options.register('includePDF', 1, VarParsing.multiplicity.singleton, VarParsing.varType.bool, "Flag for if to include PDF Weights")
+options.register('includePDF', 0, VarParsing.multiplicity.singleton, VarParsing.varType.bool, "Flag for if to include PDF Weights")
 options.register('runOnCrab', 0, VarParsing.multiplicity.singleton, VarParsing.varType.bool, "Flag to process JEC files properly on the grid")
 options.setDefault('maxEvents', 1000)
 options.setDefault('outputFile', 'jhutester.root')
@@ -47,7 +47,7 @@ else:
 	if options.JER == 'down':
 		jerFactor = cms.double(0.00)
 	#filenames = cms.untracked.vstring("file:root://xrootd.unl.edu//store/results/B2G/TT_Mtt-700to1000_CT10_TuneZ2star_8TeV-powheg-tauola/StoreResults-Summer12_DR53X-PU_S10_START53_V7A-v1_TLBSM_53x_v3-99bd99199697666ff01397dad5652e9e/TT_Mtt-700to1000_CT10_TuneZ2star_8TeV-powheg-tauola/USER/StoreResults-Summer12_DR53X-PU_S10_START53_V7A-v1_TLBSM_53x_v3-99bd99199697666ff01397dad5652e9e/0000/02621A0E-40C2-E211-9F42-002590593902.root")
-        filenames = cms.untracked.vstring("file:/eos/uscms/store/user/lfeng7/sample_files/PATtuples/TT_CT10_TuneZ2star_8TeV-powheg-tauola_TLBSM_PAT.root")
+        filenames = cms.untracked.vstring("file:./TT_CT10_TuneZ2star_8TeV-powheg-tauola_TLBSM_PAT.root")
 
 if options.runOnCrab:
 	jec_prepend = ''
