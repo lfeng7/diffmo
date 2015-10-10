@@ -3,7 +3,7 @@ config = Configuration()
 
 config.section_('General')
 config.General.transferOutputs = True
-config.General.requestName = 'SingleEl_Run2012A_v1'
+config.General.requestName = 'SingleEl_Run2012A_v1_all'
 
 config.section_('JobType')
 config.JobType.psetName = 'semileptonic.py'
@@ -20,7 +20,7 @@ config.section_('Data')
 config.Data.inputDataset = '/SingleElectron/StoreResults-V2-Run2012A-22Jan2013-v1_TLBSM_53x_v3-db7dd8e58134469d4e102fe8d5e205b6/USER'
 config.Data.unitsPerJob = 80
 config.Data.splitting = 'LumiBased'
-config.Data.totalUnits = 800
+config.Data.totalUnits = -1 
 config.Data.lumiMask = '../Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt'
 config.Data.publication = False 
 

@@ -3,7 +3,7 @@ config = Configuration()
 
 config.section_('General')
 config.General.transferOutputs = True
-config.General.requestName = 'TTBar_Powheg_v1'
+config.General.requestName = 'TTBar_Powheg_v1_all'
 
 config.section_('JobType')
 config.JobType.psetName = 'semileptonic.py'
@@ -20,7 +20,7 @@ config.section_('Data')
 config.Data.inputDataset = '/TT_CT10_TuneZ2star_8TeV-powheg-tauola/StoreResults-Summer12_DR53X-PU_S10_START53_V7A-v2_TLBSM_53x_v3_bugfix_v1-99bd99199697666ff01397dad5652e9e/USER'
 config.Data.unitsPerJob = 5
 config.Data.splitting = 'FileBased'
-config.Data.totalUnits = 50
+config.Data.totalUnits = -1
 config.Data.publication = False 
 
 #config.Data.publishDataName = 'TTBar_Powheg_v1'
