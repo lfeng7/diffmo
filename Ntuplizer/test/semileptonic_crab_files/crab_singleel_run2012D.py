@@ -21,9 +21,10 @@ config.Data.inputDataset = '/SingleElectron/StoreResults-Run2012D-22Jan2013-v1_T
 config.Data.unitsPerJob = 80
 config.Data.splitting = 'LumiBased'
 config.Data.lumiMask = '../Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt'
-config.Data.publishDataName = 'SingleEl_Run2012D_v1'
+#config.Data.publishDataName = 'SingleEl_Run2012D_v1'
 
 config.section_('User')
+config.Data.outLFNDirBase = '/store/user/lfeng/ntuples/jhu_diffmo'
 
 config.section_('Site')
 config.Site.storageSite = 'T3_US_FNALLPC'

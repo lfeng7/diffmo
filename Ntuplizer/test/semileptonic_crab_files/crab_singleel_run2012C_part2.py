@@ -22,9 +22,10 @@ config.Data.inputDBS = 'phys03'
 config.Data.unitsPerJob = 80
 config.Data.splitting = 'LumiBased'
 config.Data.lumiMask = '../Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt'
-config.Data.publishDataName = 'SingleEl_Run2012C_part2_v1'
+#config.Data.publishDataName = 'SingleEl_Run2012C_part2_v1'
 
 config.section_('User')
+config.Data.outLFNDirBase = '/store/user/lfeng/ntuples/jhu_diffmo'
 
 config.section_('Site')
 config.Site.storageSite = 'T3_US_FNALLPC'
