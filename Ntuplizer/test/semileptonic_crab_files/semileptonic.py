@@ -3,6 +3,7 @@
 # With some tweaks for PDF by Nick				#
 # Add csvtag for AK5 jets					#
 # Remove fat jets and loose leptons to reduce size		#
+# Add back loose leptons for qcd background study
 #################################################################
 
 import FWCore.ParameterSet.Config as cms
@@ -172,7 +173,9 @@ process.MessageLogger.cerr.FwkReport.reportEvery = 100
 process.p = cms.Path(
 			process.jhuGen*
 			process.jhuMuonPFlow*
+			process.jhuMuonPFlowLoose*
 			process.jhuElePFlow*
+			process.jhuElePFlowLoose*
 			process.jhuAk5)
 
 if options.includePDF:
