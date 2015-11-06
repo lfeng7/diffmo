@@ -3,7 +3,7 @@ config = Configuration()
 
 config.section_('General')
 config.General.transferOutputs = True
-config.General.requestName = 'TTBar_Powheg_v1_all'
+config.General.requestName = 'TTBar_Powheg'
 
 config.section_('JobType')
 config.JobType.psetName = 'semileptonic.py'
@@ -26,7 +26,7 @@ config.Data.publication = False
 #config.Data.publishDataName = 'TTBar_Powheg_v1'
 
 config.section_('User')
-config.Data.outLFNDirBase = '/store/user/lfeng/ntuples/jhu_diffmo'
+config.Data.outLFNDirBase = '/store/user/lfeng/ntuples/jhu_diffmo_v2'
 
 config.section_('Site')
 config.Site.storageSite = 'T3_US_FNALLPC'

@@ -3,7 +3,7 @@ config = Configuration()
 
 config.section_('General')
 config.General.transferOutputs = True
-config.General.requestName = 'SingleEl_Run2012B_v1'
+config.General.requestName = 'SingleEl_Run2012B'
 
 config.section_('JobType')
 config.JobType.psetName = 'semileptonic.py'
@@ -24,7 +24,7 @@ config.Data.lumiMask = '../Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_
 #config.Data.publishDataName = 'SingleEl_Run2012B_v1'
 
 config.section_('User')
-config.Data.outLFNDirBase = '/store/user/lfeng/ntuples/jhu_diffmo'
+config.Data.outLFNDirBase = '/store/user/lfeng/ntuples/jhu_diffmo_v2'
 
 config.section_('Site')
 config.Site.storageSite = 'T3_US_FNALLPC'

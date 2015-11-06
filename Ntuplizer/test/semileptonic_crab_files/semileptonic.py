@@ -32,7 +32,7 @@ if options.runOnData:
 	runOnData = cms.bool(True)
 	jesFactor = cms.double(0.00)
 	jerFactor = cms.double(0.10)
-	filenames = cms.untracked.vstring("file:root://xrootd.unl.edu//store/results/b2g/StoreResults/JetHT/USER/Run2012B_22Jan2013_TLBSM_53x_0161496fccaa0bf55fbb525b618345b5-v1/00000/00F149B6-E46B-E411-841F-0025905A610C.root")
+	filenames = cms.untracked.vstring('file:root://xrootd.unl.edu//store/results/B2G/SingleElectron/StoreResults-Run2012B-22Jan2013-v1_TLBSM_53x_v3-db7dd8e58134469d4e102fe8d5e205b6/SingleElectron/USER/StoreResults-Run2012B-22Jan2013-v1_TLBSM_53x_v3-db7dd8e58134469d4e102fe8d5e205b6/0000/0078435C-F3D3-E211-8417-0025905964C2.root')
 else:
 	runOnData = cms.bool(False)
 	if options.JES == 'nominal':
@@ -48,7 +48,7 @@ else:
 	if options.JER == 'down':
 		jerFactor = cms.double(0.00)
 	#filenames = cms.untracked.vstring("file:root://xrootd.unl.edu//store/results/B2G/TT_Mtt-700to1000_CT10_TuneZ2star_8TeV-powheg-tauola/StoreResults-Summer12_DR53X-PU_S10_START53_V7A-v1_TLBSM_53x_v3-99bd99199697666ff01397dad5652e9e/TT_Mtt-700to1000_CT10_TuneZ2star_8TeV-powheg-tauola/USER/StoreResults-Summer12_DR53X-PU_S10_START53_V7A-v1_TLBSM_53x_v3-99bd99199697666ff01397dad5652e9e/0000/02621A0E-40C2-E211-9F42-002590593902.root")
-        filenames = cms.untracked.vstring("file:./TT_CT10_TuneZ2star_8TeV-powheg-tauola_TLBSM_PAT.root")
+        filenames = cms.untracked.vstring("file:../TT_CT10_TuneZ2star_8TeV-powheg-tauola_TLBSM_PAT.root")
 
 if options.runOnCrab:
 	jec_prepend = ''
