@@ -35,7 +35,7 @@ files = ['TT_CT10_TuneZ2star_8TeV-powheg-tauola_TLBSM_PAT.root']
 events = Events(files)
 
 # Control constants
-nevt_cut = 10
+nevt_cut = 1000
 
 # Handles and labels
 PatElePF_hndl = Handle('vector<pat::Electron>')
@@ -62,6 +62,10 @@ for evt in events:
 
     evt.getByLabel(PatElePF_label,PatElePF_hndl)
     els = PatElePF_hndl.product()
+    if els.size() == 0 : continue
+    else :
+        el = els[0];break
+    
 
 # End of event loop
 
