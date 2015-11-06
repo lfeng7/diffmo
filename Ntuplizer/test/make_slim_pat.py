@@ -35,7 +35,8 @@ files = ['TT_CT10_TuneZ2star_8TeV-powheg-tauola_TLBSM_PAT.root']
 events = Events(files)
 
 # Control constants
-nevt_cut = 1000
+nevt_cut = -1 #1000
+n_passed_cut = -1
 
 # Handles and labels
 PatElePF_hndl = Handle('vector<pat::Electron>')
@@ -43,6 +44,7 @@ PatElePF_label = ('selectedPatElectronsPFlow')
 
 #output file
 fout = ROOT.TFile('slimmed_pat.root','recreate')
+#fout.SetCompressionLevel(9)
 outputtree = ROOT.TTree('pat','pat')
 
 # Data
@@ -62,13 +64,15 @@ for ibr in branches:
 # Counter initiation 
 n_evt = 0
 n_evt_csv = 0
+n_passed = 0
 
 print 'Getting',events.size(),'events'
 # Event loop
 for evt in events:
 
+    for ivec in all_vecs: ivec.clear()
     # counting and stuff
-    if n_evt == nevt_cut: break
+    if n_evt == nevt_cut or n_passed == n_passed_cut: break
     #print 'loop over',n_evt,'events'
     n_evt += 1
     if n_evt%5000 == 1: print 'Loop over',n_evt,'event'
@@ -76,8 +80,9 @@ for evt in events:
     evt.getByLabel(PatElePF_label,PatElePF_hndl)
     els = PatElePF_hndl.product()
     if els.size() == 0 : continue
+    n_passed += 1
     for el in els:
-        mva_vec.push_back(el.mva())
+        mva_vec.push_back(el.electronID("mvaTrigV0"))
         if el.isEBEEGap():
             isEBEEGap_vec.push_back(1)
         else : 
@@ -86,7 +91,7 @@ for evt in events:
             passConversionVeto.push_back(1)
         else :
             passConversionVeto.push_back(0)
-        pdgid_vec.Fill(el.pdgId())
+        pdgid_vec.push_back(el.pdgId())
     outputtree.Fill()
 
 fout.Write()
