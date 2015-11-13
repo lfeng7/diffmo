@@ -41,7 +41,8 @@ n_passed_cut = -1
 # Handles and labels
 PatElePF_hndl = Handle('vector<pat::Electron>')
 PatElePF_label = ('selectedPatElectronsPFlow')
-
+PV_hndl = Handle('std::vector<reco::Vertex>')
+PV_label = ('goodOfflinePrimaryVertices')
 #output file
 fout = ROOT.TFile('slimmed_pat.root','recreate')
 #fout.SetCompressionLevel(9)
@@ -78,9 +79,13 @@ for evt in events:
     if n_evt%5000 == 1: print 'Loop over',n_evt,'event'
 
     evt.getByLabel(PatElePF_label,PatElePF_hndl)
+    evt.getByLabel(PV_label,PV_hndl)
     els = PatElePF_hndl.product()
+    pvs = PV_hndl.product() 
     if els.size() == 0 : continue
     n_passed += 1
+    electron = els[0]
+    break
     for el in els:
         mva_vec.push_back(el.electronID("mvaTrigV0"))
         if el.isEBEEGap():
