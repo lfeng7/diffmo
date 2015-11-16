@@ -135,8 +135,9 @@ bool jhuLepton::filter(edm::Event& iEvent, const edm::EventSetup& iSetup)
 			std::vector<pat::Electron>::const_iterator electron = ielec;
 			// EB-EE transition region 1.4442 < fabs(superCluster.eta) < 1.5660
 			unsigned int is_EBEEGap = 0;
-			if (electron->isEBEEGap()){is_EBEEGap = 1;}
-			ele_isEBEEGap->push_back(is_EBEEGap);
+			double abseta = std::abs(electron->superCluster()->eta());
+			if (abseta <= 1.4442 || abseta >= 1.5660) {is_EBEEGap = 0;}
+			else {is_EBEEGap = 1;}
 			// Transverse IP of the elecrtron (GSF track)
 			reco::Vertex vertex_=  *(hPV->begin());	
 			ele_TransverseIP->push_back(fabs(electron->gsfTrack()->dxy(vertex_.position())));
