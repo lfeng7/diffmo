@@ -51,7 +51,7 @@ jhuLepton::jhuLepton(const edm::ParameterSet& iConfig) :
 	bool is_el = (lepType_ == "el" or lepType_ == "ele" or lepType_ == "elec" or lepType_ == "electron" or lepType_ == "electrons");
 	if (is_el)
 	{
-		produces<std::vector<double>>("ele_MVA");
+		produces<std::vector<double>>(lepName_+"MVA");
 	}
 }
 
@@ -146,7 +146,7 @@ bool jhuLepton::filter(edm::Event& iEvent, const edm::EventSetup& iSetup)
 		// iEvent.put( ele_isEBEEGap, "ele_isEBEEGap");
 		// iEvent.put( ele_TransverseIP, "ele_TransverseIP");
 		// iEvent.put( ele_passConversionVeto, "ele_passConversionVeto");
-		iEvent.put( ele_MVA, "ele_MVA");
+		iEvent.put( ele_MVA, lepName_+"MVA");
 		// iEvent.put( ele_numberOfHits, "ele_numberOfHits");
 	}
 	iEvent.put( leps, lepName_);
