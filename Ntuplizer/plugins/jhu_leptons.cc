@@ -54,7 +54,7 @@ jhuLepton::jhuLepton(const edm::ParameterSet& iConfig) :
 		produces<std::vector<unsigned int>>(lepName_+"isEBEEGap");
 		produces<std::vector<unsigned int>>(lepName_+"passConversionVeto");
 		produces<std::vector<double>>(lepName_+"TransverseIP");
-		produces<std::vector<double>>(lepName_+"numberOfHits");
+		produces<std::vector<int>>(lepName_+"numberOfHits");
 		produces<std::vector<double>>(lepName_+"MVA");
 	}
 }
@@ -82,7 +82,7 @@ bool jhuLepton::filter(edm::Event& iEvent, const edm::EventSetup& iSetup)
 	std::auto_ptr<std::vector<double>> ele_TransverseIP(new std::vector<double>());
 	std::auto_ptr<std::vector<unsigned int>> ele_passConversionVeto(new std::vector<unsigned int>());
 	std::auto_ptr<std::vector<double>> ele_MVA( new std::vector<double>() );
-	std::auto_ptr<std::vector<double>> ele_numberOfHits(new std::vector<double>());
+	std::auto_ptr<std::vector<int>> ele_numberOfHits(new std::vector<int>());
 
 
 	bool is_el = (lepType_ == "el" or lepType_ == "ele" or lepType_ == "elec" or lepType_ == "electron" or lepType_ == "electrons");
@@ -138,6 +138,7 @@ bool jhuLepton::filter(edm::Event& iEvent, const edm::EventSetup& iSetup)
 			double abseta = std::abs(electron->superCluster()->eta());
 			if (abseta <= 1.4442 || abseta >= 1.5660) {is_EBEEGap = 0;}
 			else {is_EBEEGap = 1;}
+                        ele_isEBEEGap->push_back(is_EBEEGap);
 			// Transverse IP of the elecrtron (GSF track)
 			reco::Vertex vertex_=  *(hPV->begin());	
 			ele_TransverseIP->push_back(fabs(electron->gsfTrack()->dxy(vertex_.position())));

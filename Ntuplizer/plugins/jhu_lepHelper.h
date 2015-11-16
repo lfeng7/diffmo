@@ -39,7 +39,7 @@ namespace LEPDF
 
 	unsigned int lepTight(std::vector<pat::Electron>::const_iterator electron, const edm::Handle< std::vector<reco::Vertex> > hVtx, const edm::Handle<reco::ConversionCollection> hConCol, const edm::Handle<reco::BeamSpot> hBeamspot)
 	{
-		el_iso_cut = 1.5
+		double el_iso_cut = 1.5;
 		//Selection taken from here: https://twiki.cern.ch/twiki/bin/viewauth/CMS/EgammaCutBasedIdentification#New_instructions_GitHub 02/02/2015
 		reco::Vertex vtx = *(hVtx->begin());
 
@@ -121,7 +121,7 @@ namespace LEPDF
 									else return is_tight_ele;
 									if (fabs(ep) < 0.05)
 									{
-										if ((electron->pt() >= 20 && lepPFIso(electron) < el_iso_cut) || (electron->pt() < 20 && lepPFIso(electron) < el_iso_cut)
+										if ((electron->pt() >= 20 && lepPFIso(electron) < el_iso_cut) || (electron->pt() < 20 && lepPFIso(electron) < el_iso_cut))
 										{
 											if(hConCol.isValid() && hBeamspot.isValid())
 											{
@@ -170,7 +170,7 @@ namespace LEPDF
 
 	unsigned int lepLoose(std::vector<pat::Electron>::const_iterator electron, const edm::Handle< std::vector<reco::Vertex> > hVtx, const edm::Handle<reco::ConversionCollection> hConCol, const edm::Handle<reco::BeamSpot> hBeamspot)
 	{
-		el_iso_cut = 1.5
+		double el_iso_cut = 1.5;
 		//Selection taken from here: https://twiki.cern.ch/twiki/bin/viewauth/CMS/EgammaCutBasedIdentification#New_instructions_GitHub 02/02/2015
 		reco::Vertex vtx = *(hVtx->begin()); // I THINK we only want the first PV. It is supposed to be the most likely PV.
 		unsigned int is_loose_ele = 0;
