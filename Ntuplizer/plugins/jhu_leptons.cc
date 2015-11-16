@@ -47,6 +47,12 @@ jhuLepton::jhuLepton(const edm::ParameterSet& iConfig) :
 	produces<std::vector<unsigned int>>(lepName_+"modtight");
 	produces<std::vector<double>>(lepName_+"iso");
 	produces<std::vector<signed int>>(lepName_+"charge");
+	//electron only
+	bool is_el = (lepType_ == "el" or lepType_ == "ele" or lepType_ == "elec" or lepType_ == "electron" or lepType_ == "electrons");
+	if (is_el)
+	{
+		produces<std::vector<double>>("ele_MVA");
+	}
 }
 
 void jhuLepton::beginJob()
@@ -68,11 +74,11 @@ bool jhuLepton::filter(edm::Event& iEvent, const edm::EventSetup& iSetup)
 	std::auto_ptr<std::vector<double>> lepsiso(new std::vector<double>());
 	// for MVA based electron ID
 	// https://twiki.cern.ch/twiki/bin/viewauth/CMS/TopEGMRun1#Signal
-	std::auto_ptr<std::vector<unsigned int>> ele_isEBEEGap(new std::vector<unsigned int>());	
-	std::auto_ptr<std::vector<double>> ele_TransverseIP(new std::vector<double>());
-	std::auto_ptr<std::vector<unsigned int>> ele_passConversionVeto(new std::vector<unsigned int>());
-	std::auto_ptr<std::vector<double>> ele_MVA(new std::vector<double>());
-	std::auto_ptr<std::vector<double>> ele_numberOfHits(new std::vector<double>());
+	// std::auto_ptr<std::vector<unsigned int>> ele_isEBEEGap(new std::vector<unsigned int>());	
+	// std::auto_ptr<std::vector<double>> ele_TransverseIP(new std::vector<double>());
+	// std::auto_ptr<std::vector<unsigned int>> ele_passConversionVeto(new std::vector<unsigned int>());
+	std::auto_ptr<std::vector<double>> ele_MVA( new std::vector<double>() );
+	// std::auto_ptr<std::vector<double>> ele_numberOfHits(new std::vector<double>());
 
 
 	bool is_el = (lepType_ == "el" or lepType_ == "ele" or lepType_ == "elec" or lepType_ == "electron" or lepType_ == "electrons");
@@ -122,26 +128,26 @@ bool jhuLepton::filter(edm::Event& iEvent, const edm::EventSetup& iSetup)
 			////////////////////////////////////////////////  
 			//       	electron MVA cuts				  //
 			////////////////////////////////////////////////
-			pat::Electron electron = *(ielec);
-			// EB-EE transition region 1.4442 < fabs(superCluster.eta) < 1.5660
-			unsigned int is_EBEEGap = 0;
-			if (electron->isEBEEGap()){is_EBEEGap = 1;};
-			ele_isEBEEGap->push_back(is_EBEEGap);
-			// Transverse IP of the elecrtron (GSF track)
-			reco::Vertex vertex_= *(hPV[0]);	
-			ele_TransverseIP->push_back(fabs(electron->gsfTrack()->dxy(vertex_->position())));
-			// Conversion rejection 
-			ele_passConversionVeto->push_back(electron->passConversionVeto());
+			std::vector<pat::Electron>::const_iterator electron = ielec;
+			// // EB-EE transition region 1.4442 < fabs(superCluster.eta) < 1.5660
+			// unsigned int is_EBEEGap = 0;
+			// if (electron->isEBEEGap()){is_EBEEGap = 1;};
+			// ele_isEBEEGap->push_back(is_EBEEGap);
+			// // Transverse IP of the elecrtron (GSF track)
+			// reco::Vertex vertex_= *(hPV[0]);	
+			// ele_TransverseIP->push_back(fabs(electron->gsfTrack()->dxy(vertex_->position())));
+			// // Conversion rejection 
+			// ele_passConversionVeto->push_back(electron->passConversionVeto());
 			// MVA
 			ele_MVA->push_back(electron->electronID("mvaTrigV0"));
 			// mHits
-			ele_numberOfHits->push_back(electron->gsfTrack()->trackerExpectedHitsInner().numberOfHits());
+			// ele_numberOfHits->push_back(electron->gsfTrack()->trackerExpectedHitsInner().numberOfHits());
 		}
-		iEvent.put( ele_isEBEEGap, "ele_isEBEEGap");
-		iEvent.put( ele_TransverseIP, "ele_TransverseIP");
-		iEvent.put( ele_passConversionVeto, "ele_passConversionVeto");
+		// iEvent.put( ele_isEBEEGap, "ele_isEBEEGap");
+		// iEvent.put( ele_TransverseIP, "ele_TransverseIP");
+		// iEvent.put( ele_passConversionVeto, "ele_passConversionVeto");
 		iEvent.put( ele_MVA, "ele_MVA");
-		iEvent.put( ele_numberOfHits, "ele_numberOfHits");
+		// iEvent.put( ele_numberOfHits, "ele_numberOfHits");
 	}
 	iEvent.put( leps, lepName_);
 	iEvent.put( lepsistight, lepName_+"istight");
