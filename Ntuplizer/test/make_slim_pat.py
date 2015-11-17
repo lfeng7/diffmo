@@ -35,7 +35,7 @@ files = ['TT_CT10_TuneZ2star_8TeV-powheg-tauola_TLBSM_PAT.root']
 events = Events(files)
 
 # Control constants
-nevt_cut = 1000
+nevt_cut = -1#1000
 
 # Handles and labels
 PatElePF_hndl = Handle('vector<pat::Electron>')
@@ -76,6 +76,9 @@ for evt in events:
     evt.getByLabel(PatElePF_label,PatElePF_hndl)
     els = PatElePF_hndl.product()
     if els.size() == 0 : continue
+    electron = els[0];
+    if not  electron.gsfTrack().trackerExpectedHitsInner().numberOfHits()>0: continue    
+    break;
     for el in els:
         mva_vec.push_back(el.mva())
         if el.isEBEEGap():
